@@ -1,0 +1,27 @@
+.input {
+    margin-right: 10px;
+    font-size: 16px;
+    background-color: #B0D0D3;
+    color: black;
+    border: 0;
+    border-bottom: 1px solid black;
+}
+
+.button {
+    border-radius: 12px;
+    background-color: white;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #F7AF9D;
+    color: black;
+    border: 0;
+}
+
+.form {
+    background-color: #B0D0D3;
+    padding: 10px 10px;
+}
+
+.div {
+    width: 40%;
+}
