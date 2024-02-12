@@ -1,27 +1,27 @@
-.input {
-    margin-right: 10px;
-    font-size: 16px;
-    background-color: #B0D0D3;
-    color: black;
-    border: 0;
-    border-bottom: 1px solid black;
-}
-
 .button {
     border-radius: 12px;
-    background-color: white;
     margin-top: 10px;
     font-size: 16px;
     background-color: #F7AF9D;
     color: black;
     border: 0;
+    margin: 5px;
 }
 
-.form {
-    background-color: #B0D0D3;
-    padding: 10px 10px;
+.input:focus {
+  outline: none;
+}
+
+.input {
+  border: none;
+  font-size: 16px;
+  background-color: #B0D0D3;
+  border-bottom: 1px solid;
 }
 
 .div {
     width: 40%;
+    background-color: #B0D0D3;
+    padding: 10px 10px;
+    border-radius: 25px;
 }
