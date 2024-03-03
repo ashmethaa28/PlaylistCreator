@@ -4,8 +4,8 @@ function Tracklist({ tracks, isAdd, action }) {
     return (
         <ul>
             {
-                tracks?.map(({name, artist, id}) => (
-                       <Track songName={name} artist={artist} id={id} isAdd={isAdd} action={action} />    
+                tracks?.map((t) => (
+                       <Track track={t} isAdd={isAdd} action={action} />    
                 ))
             }
         </ul>

@@ -3,36 +3,31 @@ import Playlist from '../playlist/Playlist';
 import SearchBar from '../searchBar/SearchBar';
 import SearchResults from '../searchResult/SearchResults';
 import { useState } from 'react';
-import styles from './App.module.css'
+import styles from './App.module.css';
+import { Spotify } from '../util/Spotify/Spotify';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [playlist, setPlayList] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
   const [result, setResult] = useState([]);
-  const [playlistName, setPlaylistName] = useState('');
 
   const searchInputHandler = (newSearch) => {
     setSearch(newSearch);
 
-    //TODO: setResult using API
-    setResult([]);
+    Spotify.search(newSearch).then(r => setResult(r));
   }
 
-  const addListItemHandler = (addSong) => {
-    setPlayList(prev => [...prev, addSong]);
+  const addListItemHandler = (track) => {
+    setPlaylist(prev => [...prev, track]);
   }
 
-  const removeListItemHandler = (removeSong) => {
-    setPlayList(prev => (prev.filter(songInfo => (songInfo.id === removeSong))));
+  const removeListItemHandler = (track) => {
+    setPlaylist(prev => (prev.filter((song) => song.id !== track.id)));
   }
 
-  const playlistNameHandler = (newPlaylistName) => {
-    setPlaylistName(newPlaylistName);
-
+  const playlistSaved = (playlistName) => {
     //TODO: send information to api
 
-    setPlayList([]);
-    setPlaylistName('');
   }
 
   return (
@@ -43,13 +38,14 @@ function App() {
       />
       <div className={styles.div}>
         <SearchResults 
+          search={search}
           result={result} 
           onAdd={addListItemHandler} 
         />
         <Playlist 
           tracks={playlist} 
           onRemove={removeListItemHandler}
-          onNamed={playlistNameHandler}
+          onSaved={playlistSaved}
         />
       </div>
     </div>

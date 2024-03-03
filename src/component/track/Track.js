@@ -1,10 +1,10 @@
-function Track({ artist, songName, id, isAdd, action }) {
+function Track({ track, isAdd, action }) {
     return (
         <li>
-            <p>{artist}</p>
-            <p>{songName}</p>
+            <p>{track.name}</p>
+            <p>{track.artist}</p>
             {
-                isAdd ? <button onClick={()=>action(id)}>+</button> : <button onClick={()=>action(id)}>-</button>
+                isAdd ? <button onClick={()=>action(track)}>+</button> : <button onClick={()=>action(track)}>-</button>
             }
         </li>
     );
